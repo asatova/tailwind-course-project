@@ -1,9 +1,32 @@
+import { useState } from 'react'
+import styles from './App.module.scss'
+
 function App() {
-  return (
-      <div className='border border-amber-700 rounded-lg'>
-        <h1 className='text-red-900'>Hello</h1>
-        <button className='mx-10'>Login</button>
-      </div>
-  )
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+
+	const [isOpen, setIsOpen] = useState(false)
+
+	return (
+		<div className={styles.parent}>
+			<h1 className={styles.heading}>Hello htmllessons.ru</h1>
+			<div>
+				<input
+					placeholder='Email'
+					value={email}
+					onChange={e => setEmail(e.target.value)}
+				/>
+				<input
+					placeholder='Password'
+					value={password}
+					onChange={e => setPassword(e.target.value)}
+				/>
+				<button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
+					Login
+				</button>
+			</div>
+		</div>
+	)
 }
+
 export default App
